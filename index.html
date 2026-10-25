@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Inventario - Comidería</title>
+    <!-- Conectamos nuestro archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ENCABEZADO Y BARRA DE NAVEGACIÓN -->
+    <header>
+        <nav class="menu-superior">
+            <h1 class="logo">🍽️ Sistema de Inventario Gastronómico</h1>
+            <div class="botones-menu">
+                <!-- Los botones que controlarán la navegación -->
+                <button onclick="mostrarSeccion('inicio')">Inicio</button>
+                <button onclick="mostrarSeccion('insumos')">1. Inventario de Insumos</button>
+                <button onclick="mostrarSeccion('proveedores')">2. Proveedores</button>
+                <button onclick="mostrarSeccion('compras')">3. Facturas y Compras</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL (Aquí vivirá todo el contenido) -->
+    <main class="contenedor">
+
+        <!-- ==========================================
+             SECCIÓN 1: PANTALLA DE INICIO (Panel)
+        =========================================== -->
+        <section id="inicio" class="modulo activo">
+            
+            <div class="caja-bienvenida">
+                <h2>Panel de Control - Inventario y Proveedores</h2>
+                <p>Prototipo funcional estructurado con HTML5 semántico puro.</p>
+            </div>
+
+            <!-- Contenedor para las 3 tarjetas de métricas -->
+            <div class="tarjetas-inicio">
+                
+                <div class="tarjeta">
+                    <h3>Insumos Registrados</h3>
+                    <p class="cifra">24</p>
+                    <button class="btn-primario" onclick="mostrarSeccion('insumos')">Ver Inventario</button>
+                </div>
+                
+                <div class="tarjeta">
+                    <h3>Proveedores Activos</h3>
+                    <p class="cifra cifra-verde">8</p>
+                    <button class="btn-secundario" onclick="mostrarSeccion('proveedores')">Gestionar Proveedores</button>
+                </div>
+                
+                <div class="tarjeta">
+                    <h3>Cuentas por Pagar</h3>
+                    <p class="cifra cifra-roja">C$ 12,450</p>
+                    <button class="btn-alerta" onclick="mostrarSeccion('compras')">Registrar Compra</button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+             MÓDULO 1: INVENTARIO DE INSUMOS
+        =========================================== -->
+        <section id="insumos" class="modulo">
+            
+            <div class="cabecera-modulo cabecera-azul">
+                <h2>Módulo 1: Catálogo e Inventario de Insumos (Materia Prima)</h2>
+            </div>
+            
+            <div class="cuerpo-modulo">
+                <!-- Formulario de Registro -->
+                <form class="formulario">
+                    <div class="grupo-input">
+                        <label for="codigo-insumo">Código</label>
+                        <input type="text" id="codigo-insumo" placeholder="Ej. INS-005">
+                    </div>
+                    <div class="grupo-input">
+                        <label for="nombre-insumo">Nombre del Insumo</label>
+                        <input type="text" id="nombre-insumo" placeholder="Ej. Quesillo Chontaleño">
+                    </div>
+                    <div class="grupo-input">
+                        <label for="unidad-insumo">Unidad</label>
+                        <select id="unidad-insumo">
+                            <option value="libras">Libras</option>
+                            <option value="unidades">Unidades</option>
+                            <option value="litros">Litros</option>
+                        </select>
+                    </div>
+                    <div class="grupo-boton">
+                        <button type="button" class="btn-primario" onclick="alert('Insumo guardado en prototipo')">+ Agregar Insumo</button>
+                    </div>
+                </form>
+
+                <!-- Tabla de Datos -->
+                <table class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Insumo</th>
+                            <th>Categoría</th>
+                            <th>Unidad</th>
+                            <th>Último Precio (C$)</th>
+                            <th>Stock Actual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>INS-001</td><td>Posta de Res</td><td>Carnes</td><td>Libras</td><td>C$ 145.00</td><td>35 lbs</td></tr>
+                        <tr><td>INS-002</td><td>Quesillo de Trenza</td><td>Lácteos</td><td>Libras</td><td>C$ 110.00</td><td>50 lbs</td></tr>
+                        <tr><td>INS-004</td><td>Cebolla Morada</td><td>Verduras</td><td>Libras</td><td>C$ 28.00</td><td>40 lbs</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+             MÓDULO 2: PROVEEDORES
+        =========================================== -->
+        <section id="proveedores" class="modulo">
+            
+            <div class="cabecera-modulo cabecera-verde">
+                <h2>Módulo 2: Gestión de Proveedores</h2>
+            </div>
+            
+            <div class="cuerpo-modulo">
+                <form class="formulario">
+                    <div class="grupo-input">
+                        <label for="nombre-proveedor">Nombre Comercial</label>
+                        <input type="text" id="nombre-proveedor" placeholder="Ej. Lácteos San Pedro">
+                    </div>
+                    <div class="grupo-input">
+                        <label for="contacto-proveedor">Contacto / Vendedor</label>
+                        <input type="text" id="contacto-proveedor" placeholder="Nombre del contacto">
+                    </div>
+                    <div class="grupo-input">
+                        <label for="telefono-proveedor">Teléfono</label>
+                        <input type="text" id="telefono-proveedor" placeholder="8888-8888">
+                    </div>
+                    <div class="grupo-boton">
+                        <button type="button" class="btn-secundario" onclick="alert('Proveedor registrado en prototipo')">Guardar</button>
+                    </div>
+                </form>
+
+                <table class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Empresa Proveedora</th>
+                            <th>Contacto</th>
+                            <th>Teléfono</th>
+                            <th>Rubro</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>PROV-01</td><td>Distribuidora Carnes del Norte</td><td>Carlos Mendoza</td><td>8845-1230</td><td>Carnes</td><td>Activo</td></tr>
+                        <tr><td>PROV-02</td><td>Lácteos El Chontaleño</td><td>María Saballos</td><td>8712-9940</td><td>Lácteos</td><td>Activo</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+             MÓDULO 3: FACTURAS Y COMPRAS
+        =========================================== -->
+        <section id="compras" class="modulo">
+            
+            <div class="cabecera-modulo cabecera-roja">
+                <h2>Módulo 3: Registro de Facturas de Compra y Cuentas por Pagar</h2>
+            </div>
+            
+            <div class="cuerpo-modulo">
+                <form class="formulario">
+                    <div class="grupo-input">
+                        <label for="num-factura">N° Factura</label>
+                        <input type="text" id="num-factura" placeholder="FAC-1045">
+                    </div>
+                    <div class="grupo-input">
+                        <label for="prov-factura">Proveedor</label>
+                        <select id="prov-factura">
+                            <option value="carnes">Distribuidora Carnes del Norte</option>
+                            <option value="lacteos">Lácteos El Chontaleño</option>
+                            <option value="verduras">Verduras Selectas Oriental</option>
+                        </select>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="monto-factura">Monto Total (C$)</label>
+                        <input type="number" id="monto-factura" placeholder="0.00">
+                    </div>
+                    <div class="grupo-boton">
+                        <button type="button" class="btn-alerta" onclick="alert('Factura registrada')">Registrar</button>
+                    </div>
+                </form>
+
+                <table class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>N° Factura</th>
+                            <th>Fecha</th>
+                            <th>Proveedor</th>
+                            <th>Total Compra</th>
+                            <th>Saldo Pendiente</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>FAC-0981</td><td>20/10/2026</td><td>Distribuidora Carnes del Norte</td><td>C$ 7,250.00</td><td>C$ 7,250.00</td><td>Pendiente</td></tr>
+                        <tr><td>FAC-0975</td><td>18/10/2026</td><td>Verduras Selectas Oriental</td><td>C$ 1,800.00</td><td>C$ 0.00</td><td>Pagado</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Conectamos nuestro archivo JavaScript al final para que cargue más rápido -->
+    <script src="script.js"></script>
+</body>
+</html>

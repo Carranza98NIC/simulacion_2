@@ -1,0 +1,196 @@
+/* ==========================================
+   1. ESTILOS GENERALES (Reset y tipografía)
+========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa; /* Fondo gris claro */
+    color: #333;
+}
+
+.contenedor {
+    max-width: 1100px; /* Ancho máximo para que no se estire en pantallas gigantes */
+    margin: 0 auto;    /* Centra el contenedor horizontalmente */
+    padding: 20px;
+}
+
+/* ==========================================
+   2. LA LÓGICA DE LA NAVEGACIÓN (¡CRÍTICO!)
+========================================== */
+.modulo {
+    display: none; /* Oculta todos los módulos por defecto */
+}
+
+.modulo.activo {
+    display: block; /* Solo muestra el módulo que tenga la clase "activo" */
+    animation: aparecer 0.3s ease-in-out; /* Pequeño efecto al cambiar de pantalla */
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   3. BARRA DE NAVEGACIÓN SUPERIOR (FLEXBOX)
+========================================== */
+.menu-superior {
+    background-color: #212529; /* Gris muy oscuro */
+    color: white;
+    display: flex;             /* FLEXBOX: Pone elementos en fila */
+    justify-content: space-between; /* Separa el logo a la izq y botones a la der */
+    align-items: center;       /* Centra verticalmente */
+    padding: 15px 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.2rem;
+}
+
+.botones-menu button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.botones-menu button:hover {
+    background-color: white;
+    color: #212529;
+}
+
+/* ==========================================
+   4. TARJETAS DE LA PANTALLA DE INICIO
+========================================== */
+.caja-bienvenida {
+    background-color: white;
+    padding: 20px;
+    border-left: 5px solid #0d6efd; /* Borde azul a la izquierda */
+    border-radius: 5px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.tarjetas-inicio {
+    display: flex; /* FLEXBOX: Alinea las 3 tarjetas en horizontal */
+    gap: 20px;     /* Espacio entre las tarjetas */
+}
+
+.tarjeta {
+    flex: 1;       /* Hace que las 3 tarjetas midan exactamente lo mismo */
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.cifra {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #0d6efd; /* Azul por defecto */
+    margin: 10px 0;
+}
+.cifra-verde { color: #198754; } /* Verde para proveedores */
+.cifra-roja { color: #dc3545; }  /* Rojo para cuentas por pagar */
+
+/* ==========================================
+   5. CABECERAS DE LOS MÓDULOS
+========================================== */
+.cabecera-modulo {
+    padding: 15px 20px;
+    color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.cabecera-azul { background-color: #0d6efd; }
+.cabecera-verde { background-color: #198754; }
+.cabecera-roja { background-color: #ffc107; color: black; }
+
+.cuerpo-modulo {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* ==========================================
+   6. FORMULARIOS LINEALES (FLEXBOX)
+========================================== */
+.formulario {
+    display: flex;        /* FLEXBOX: Alinea inputs en horizontal */
+    gap: 15px;            /* Espacio entre inputs */
+    align-items: flex-end;/* Alinea los botones abajo con las cajas de texto */
+    background-color: #f8f9fa;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column; /* Apila el Label sobre el Input */
+    flex: 1;                /* Se estiran para ocupar el espacio */
+}
+
+.grupo-input label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.grupo-input input, .grupo-input select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* ==========================================
+   7. BOTONES GENERALES
+========================================== */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+}
+.btn-primario { background-color: #0d6efd; width: 100%; }
+.btn-secundario { background-color: #198754; width: 100%; }
+.btn-alerta { background-color: #212529; width: 100%; }
+
+/* ==========================================
+   8. TABLAS DE DATOS
+========================================== */
+.tabla-datos {
+    width: 100%;
+    border-collapse: collapse; /* Une los bordes para que no se vean dobles */
+}
+
+.tabla-datos th, .tabla-datos td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.tabla-datos th {
+    background-color: #212529; /* Cabecera de tabla oscura */
+    color: white;
+}
+
+.tabla-datos tr:hover {
+    background-color: #f1f3f5; /* Efecto hover al pasar el ratón */
+}
